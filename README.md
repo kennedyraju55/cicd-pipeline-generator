@@ -1,71 +1,100 @@
-# 🔧 CI/CD Pipeline Generator
+# 🚀 cicd-pipeline-generator
 
-Generate production-ready CI/CD pipeline configurations in seconds.
+Auto-generate CI/CD pipelines for any tech stack — privacy-first, locally-powered
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![Ollama](https://img.shields.io/badge/Ollama-Compatible-green.svg)](https://ollama.com)
-[![Gemma 3](https://img.shields.io/badge/Gemma-3-orange.svg)](https://ollama.com)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Privacy First](https://img.shields.io/badge/Privacy-First-red.svg)](#why-local)
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org)
+[![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-green)](https://ollama.com)
+[![Gemma 3](https://img.shields.io/badge/Gemma%203-Language%20Model-orange)](https://ollama.com/library/gemma2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
+[![Privacy First](https://img.shields.io/badge/Privacy-First-darkgreen)](#why-local)
 
-## What It Does
+## 🎯 What it does
 
-- **Auto-generates CI/CD configs** for GitHub Actions, GitLab CI, Jenkins, and more
-- **Intelligent templates** tailored to your tech stack and requirements
-- **No cloud dependencies** — all generation happens locally on your machine
-- **Customizable outputs** with variable interpolation and conditional steps
+- Generate complete CI/CD pipeline configurations (GitHub Actions, GitLab CI, Jenkins) from simple descriptions
+- Supports multiple tech stacks: Node.js, Python, Go, Java, Rust, Docker-based apps
+- Creates optimized pipelines with testing, linting, building, and deployment stages
+- All processing happens locally — your pipeline configs never leave your machine
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Python 3.8+** — Core generation engine
-- **Gemma 3** (via Ollama) — LLM-powered config intelligence
-- **Jinja2** — Template rendering
-- **PyYAML** — Pipeline configuration parsing
+- Streamlit (Web UI)
+- FastAPI (Backend API)
+- Ollama (Local LLM inference)
+- Gemma 3 (Language model)
+- Python 3.8+
 
-## Quick Start
+## ⚡ Quick Start
 
-`ash
-# Clone the repository
-git clone https://github.com/kennedyraju55/cicd-pipeline-generator.git
-cd cicd-pipeline-generator
+1. **Clone the repository**
+   \\\ash
+   git clone https://github.com/kennedyraju55/cicd-pipeline-generator.git
+   cd cicd-pipeline-generator
+   \\\
 
-# Install dependencies
-pip install -r requirements.txt
+2. **Install dependencies**
+   \\\ash
+   pip install -r requirements.txt
+   \\\
 
-# Pull Gemma 3 model locally
-ollama pull gemma3:4b
+3. **Download and start Ollama**
+   - Download from [ollama.com](https://ollama.com)
+   - Start Ollama service:
+   \\\ash
+   ollama serve
+   \\\
+   - In another terminal, pull Gemma 3:
+   \\\ash
+   ollama pull gemma2
+   \\\
 
-# Generate a CI/CD pipeline
-python generator.py --platform github-actions --language python
-`
+4. **Run the application**
+   \\\ash
+   streamlit run app.py
+   \\\
 
-## Architecture
+Access the app at: http://localhost:8501
 
-`
-input (tech stack, requirements)
-    ↓
-[Gemma 3 LLM Processing] ← offline, local
-    ↓
-template + config rules
-    ↓
-YAML/JSON output (ready to use)
-`
+## 🏗️ Architecture
 
-## Why Local?
+\\\
+User describes pipeline needs → Streamlit UI → FastAPI processes request → Ollama generates config using Gemma 3 → Returns complete YAML/JSON → Download directly
+\\\
 
-- **Security**: Your pipeline configs stay on your machine — no upload to external services
-- **Privacy**: No SaaS vendor has visibility into your infrastructure setup
-- **Speed**: Instant generation without API latency
-- **Reliability**: Works offline, independent of cloud availability
+All processing happens locally on your machine. No data is sent to external services.
 
-## Contributing
+## 🔒 Why Local?
 
-Contributions welcome! Please fork, create a feature branch, and submit a pull request.
+CI/CD pipeline configs often contain sensitive build secrets, deployment credentials, and infrastructure details. Generating these locally ensures your deployment strategies, service endpoints, and infrastructure topology remain completely private.
 
-## License
+## 📦 Environment Variables
 
-MIT License — see [LICENSE](LICENSE) for details.
+Create a \.env\ file in the project root:
+
+\\\nv
+OLLAMA_BASE_URL=http://localhost:11434
+MODEL_NAME=gemma2
+LOG_LEVEL=INFO
+\\\
+
+## 🤝 Contributing
+
+We love contributions! Here's how to help:
+
+1. Fork the repository
+2. Create a feature branch: \git checkout -b feature/your-feature\
+3. Make your changes and commit: \git commit -am 'Add feature'\
+4. Push to the branch: \git push origin feature/your-feature\
+5. Submit a Pull Request
+
+Please ensure:
+- Code follows PEP 8 style guidelines
+- Changes include appropriate comments
+- Updates to documentation are included
+
+## 📄 License
+
+This project is licensed under the MIT License — see [LICENSE](./LICENSE) for details.
 
 ---
 
-*Part of 114+ privacy-first AI tools by Nrk Raju*
+**Part of 114+ privacy-first AI tools by [Nrk Raju](https://github.com/kennedyraju55)**
